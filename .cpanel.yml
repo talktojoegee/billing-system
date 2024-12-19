@@ -1,0 +1,7 @@
+
+---
+deployment:
+  tasks:
+    # - export DEPLOYPATH=/home/ojivenet/public_html/
+    - export DEPLOYPATH=/home/ojivenet/public_html/laravel
+    - /bin/cp -R * $DEPLOYPATH
