@@ -19,9 +19,14 @@ class RemoteController extends Controller
     }
 
     public function loadContentByLgaName($name){
-        $report = $this->central->where('LGA', $name)->take(50)->get();
+        $report = $this->central->where('LGA', $name)/*->take(50)*/->get();
 
-        return response()->json(["data"=>$report]);
+        return  response()->json(["data"=>$report]);
+    }
+    public function loadAllContents(){
+        $report = $this->central->get();
+
+        return  response()->json(["data"=>$report]);
     }
 }
 

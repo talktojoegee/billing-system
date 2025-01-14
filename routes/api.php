@@ -10,3 +10,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get("/gis", [\App\Http\Controllers\RemoteController::class, 'makeCalls']);
 Route::get("/lga/{name}", [\App\Http\Controllers\RemoteController::class, 'loadContentByLgaName']);
+Route::get("/lga-list", [\App\Http\Controllers\RemoteController::class, 'loadAllContents']);
