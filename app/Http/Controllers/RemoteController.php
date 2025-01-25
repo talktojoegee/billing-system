@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KCentralDB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RemoteController extends Controller
 {
@@ -19,7 +20,8 @@ class RemoteController extends Controller
     }
 
     public function loadContentByLgaName($name){
-        $report = $this->central->where('LGA', $name)/*->take(50)*/->get();
+        $report = DB::connection('pgsql')->table('k_central_db')->where('LGA', $name)->get();
+        //$this->central->where('LGA', $name)/*->take(50)*/->get();
 
         return  response()->json(["data"=>$report]);
     }
